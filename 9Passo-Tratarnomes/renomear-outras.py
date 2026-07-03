@@ -5,14 +5,21 @@ Criação: 02/10/2025
 Atualização: 03/06/2026
 
 OBS1: puxe todas as pastas do passo 8 para este passo 9
-OBS2: você vai atualizar o nome das imagens para seguir um padrão, mas você vai fazer isso pasta por pasta
-OBS3: atualize a linha 15 com o nome da pasta das questões que você vai arrumar
-OBS4: ENTENDA muito bem o for da linha 25!!!!!!!!!!!
+
+OBS2: você vai atualizar o nome das imagens para seguir um padrão, mas você vai fazer isso pasta por pasta.
+
+OBS3: para cada vez que executar esse código, faça:
+- atualize a linha 22 com o nome da pasta que você vai arrumar
+- atualize o for da linha 32 com o número da primeira imagem "parte_AlgumaCoisa.png" até o número da última imagem "parte_AlgumaCoisa.png" mais 1
+- escolha qual padrão novo de nome você vai usar nas linhas 34 a 36. Deixe apenas uma linha descomentada de cada vez. Se são as questões de ingles, use o padrão com sufixo de ingles; se são questões de espanhol, use o padrão com sufixo de espanhol; se são as outras questões, use o padrão sem sufixo de idioma.
+- dentro do padrão novo de nome, faça a conta para transformar o número do antigo no número do novo. Você pode ler o comentário antes dos padrões para saber qual conta fazer
+- execute o código
 """
+
 import os
 
 def renomear_questoes_simples():
-    pasta = "sem-bordas-externas" # ATUALIZAR com o nome da pasta das questões que você vai arrumar (ex: 80-90, 15, 28)
+    pasta = "137_a_180" # ATUALIZAR com o nome da pasta das questões que você vai arrumar 
     
     if not os.path.exists(pasta):
         print(f"Pasta {pasta} não encontrada!")
@@ -22,11 +29,11 @@ def renomear_questoes_simples():
     mapeamento = {}
         
     # Exemplo: parte_00x a parte_00y -> questao-x a questao-y
-    for i in range(6, 101+1):    # atualize seu for com o número da primeira imagem "parte_AlgumaCoisa.png" até o número da última imagem "parte_AlgumaCoisa.png" mais 1 da pasta
-        antigo = f"pagina_enem_{i}.png"
+    for i in range(4, 47+1):    # atualize seu for com o número da primeira imagem "parte_AlgumaCoisa.png" até o número da última imagem "parte_AlgumaCoisa.png" mais 1 da pasta
+        antigo = f"parte_{i:03d}.png"
         #novo = f"questao-{i+78}-espanhol.png"  # faça uma conta: se a primeira pagina for 
         #novo = f"questao-{i+78}-ingles.png"
-        novo = f"questao-{i+85}.png" # faça uma conta: se o i do teu for está em 2, e precisa virar questão 35, como você transforma 2 em 35? faça a conta e coloque dentro da concatenação
+        novo = f"questao-{i+133}.png" # faça uma conta: se o i do teu for está em 2, e precisa virar questão 35, como você transforma 2 em 35? faça a conta e coloque dentro da concatenação
         
         mapeamento[antigo] = novo
     
